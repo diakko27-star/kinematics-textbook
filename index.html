@@ -177,6 +177,38 @@ input[type=text]{font:inherit;font-family:var(--mono);font-size:1.2rem;padding:8
 .score{font-family:var(--mono);font-size:3rem;color:var(--head);line-height:1}
 .pair-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
 footer{padding-block:40px 60px;color:var(--muted);font-size:.85rem;text-align:center}
+/* part II */
+.banner{margin-top:64px;padding:26px 22px;border-radius:12px;background:var(--head);color:var(--bg)}
+.banner h2{color:var(--bg);margin:6px 0 8px}
+.banner p{max-width:62ch;opacity:.88}
+.banner .tag{color:var(--bg);opacity:.75}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.dof{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.dof div{text-align:center;padding:9px 2px;border-radius:8px;font-family:var(--mono);font-size:.88rem;border:1px solid var(--line);background:var(--surface2);color:var(--muted);transition:background .25s,color .25s}
+.dof small{display:block;font-size:.62rem;opacity:.85;margin-top:2px}
+.dof .ok{background:color-mix(in srgb,var(--good) 16%,var(--surface));border-color:var(--good);color:var(--good);font-weight:500}
+.dof .cp{background:color-mix(in srgb,var(--warn) 16%,var(--surface));border-color:var(--warn);color:var(--warn);font-weight:500}
+.scroll{overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+.tbl th,.tbl td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.tbl tr.on td{background:var(--sky-soft)}
+.tbl tbody tr{cursor:pointer}
+.stepper{display:flex;align-items:center;gap:10px;justify-content:space-between;background:var(--surface2);border-radius:8px;padding:8px 12px}
+.stepper span.l{font-size:.88rem;color:var(--muted)}
+.stepper b{font-family:var(--mono);font-size:1.15rem;color:var(--head);min-width:1.6em;text-align:center;display:inline-block}
+.stepper button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.1rem;cursor:pointer}
+.stepper button:hover{border-color:var(--blue);color:var(--blue)}
+.verdict{padding:10px 14px;border-radius:8px;font-weight:500;background:var(--sky-soft);color:var(--head)}
+.verdict.ok{background:color-mix(in srgb,var(--good) 14%,var(--surface));color:var(--ink)}
+.verdict.warn{background:color-mix(in srgb,var(--warn) 14%,var(--surface));color:var(--ink)}
+.cheat{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+.cheat .eq{font-size:1.1rem;white-space:normal;overflow-x:auto}
+.cheat small{display:block;font-family:var(--font);font-size:.78rem;color:var(--muted);margin-bottom:4px}
+.dots{display:inline-flex;gap:4px;vertical-align:middle}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--blue);display:inline-block}
+.dots i.o{background:transparent;border:1.5px solid var(--muted)}
 </style>
 </head>
 <body>
@@ -198,7 +230,7 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:.85rem;text-align:ce
     <div class="eyebrow">Интерактивный учебник · механика</div>
     <h1>Основы кинематики и теория механизмов</h1>
     <p class="lead">От материальной точки и координат до кривошипно-ползунного механизма. Каждую идею можно потрогать: двигайте точки, крутите углы и смотрите, как меняются формулы.</p>
-    <div class="row" style="margin-top:20px"><a class="btn" href="#s1">Начать с точки</a><a class="btn ghost" href="#s10">Сразу к механизму</a></div>
+    <div class="row" style="margin-top:20px"><a class="btn" href="#s1">Начать с точки</a><a class="btn ghost" href="#s10">Сразу к механизму</a><a class="btn ghost" href="#p2">Углублённый курс</a></div>
   </div>
   <div class="fig"><svg id="heroSvg" viewBox="0 0 520 230" role="img" aria-label="Вращающийся кривошипно-ползунный механизм"><rect class="bg" width="520" height="230"/><g id="heroG"></g></svg>
     <div class="figcap"><span>Кривошип 1 → шатун 2 → ползун 3</span><span>стойка 0</span></div></div>
@@ -490,9 +522,200 @@ footer{padding-block:40px 60px;color:var(--muted);font-size:.85rem;text-align:ce
 </section>
 
 <!-- 12 -->
-<section class="sec" id="s12" data-nav="Тест">
+<section class="sec" id="s12" data-nav="Тест 1">
   <div class="sec-head"><span class="tag">Тема 12</span><h2>Проверка знаний</h2></div>
   <div class="card" style="max-width:720px;margin-inline:auto;width:100%"><div class="bar"><i id="qbar"></i></div><div id="quiz"></div></div>
+</section>
+
+
+<div class="banner" id="p2"><span class="tag">Часть II</span><h2>Углублённый курс</h2>
+  <p>Теперь считаем. Скорости и ускорения ползуна, план скоростей, степени свободы, классы пар, четырёхзвенник и силы в кривошипно-ползунном механизме. Нужны темы 1–10.</p></div>
+
+<!-- 13 -->
+<section class="sec" id="s13" data-nav="Скорость ползуна" style="margin-top:28px;border-top:0">
+  <div class="sec-head"><span class="tag">Тема 13 · аналитика</span><h2>Скорость и ускорение ползуна</h2></div>
+  <div class="def"><b>Скорость</b> — производная положения по времени, <b>ускорение</b> — производная скорости. Положение ползуна <i>s</i> зависит от угла φ, а угол растёт со временем: φ = ωt.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="card"><h3>Вывод по шагам</h3>
+        <div class="eq" style="display:flex;flex-direction:column;gap:10px;white-space:normal">
+          <div><i>s</i>(φ) = <i>R</i> cos φ + √(<i>L</i>² − <i>R</i>² sin² φ)</div>
+          <div><i>v</i> = <span class="fr"><span><i>ds</i></span><span><i>dt</i></span></span> = <span class="fr"><span><i>ds</i></span><span><i>d</i>φ</span></span> · <span class="fr"><span><i>d</i>φ</span><span><i>dt</i></span></span> = ω · <span class="fr"><span><i>ds</i></span><span><i>d</i>φ</span></span></div>
+          <div><i>v</i> = −ω<i>R</i> sin φ · (1 + <span class="fr"><span><i>R</i> cos φ</span><span>√(<i>L</i>² − <i>R</i>² sin² φ)</span></span>)</div>
+          <div><i>a</i> ≈ −ω²<i>R</i> (cos φ + λ cos 2φ), &nbsp;λ = <i>R</i>/<i>L</i></div>
+        </div>
+        <p class="note" style="margin-top:10px">Скорость получена обычным дифференцированием <i>s</i>(φ). Для ускорения взято приближение √(1−x) ≈ 1−x/2 при ω = const. На графике справа ускорение посчитано точно, а формула даёт близкое значение.</p></div>
+      <div class="card soft"><h3>Что видно на графиках</h3>
+        <ul style="margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px">
+          <li>В крайних положениях (φ = 0° и 180°) скорость ползуна равна нулю: он разворачивается.</li>
+          <li>В первой половине оборота ползун едет к оси O, поэтому <i>v</i> &lt; 0.</li>
+          <li>Максимум скорости достигается чуть раньше φ = 90°: шатун сдвигает его.</li>
+          <li>Ускорение в крайних положениях разное: <i>Rω</i>²(1+λ) у дальнего и <i>Rω</i>²(1−λ) у ближнего. Чем короче шатун, тем сильнее разница.</li></ul></div>
+    </div>
+    <div class="stack">
+      <div class="fig"><svg id="s13svg" viewBox="0 0 520 400" role="img" aria-label="Графики положения, скорости и ускорения ползуна"></svg>
+        <div class="figcap"><span>R = 30 мм</span><span>вертикальная линия — текущий угол φ</span></div></div>
+      <div class="card"><div class="row"><button class="btn sm" id="p13">▶ Крутить</button></div>
+        <div class="ctls" style="margin-top:12px">
+          <div class="ctl"><label for="phi13">Угол φ <output id="phi13o"></output></label><input type="range" id="phi13" min="0" max="360" step="1" value="50"></div>
+          <div class="ctl"><label for="w13">Угловая скорость ω <output id="w13o"></output></label><input type="range" id="w13" min="1" max="40" step="1" value="10"></div>
+          <div class="ctl"><label for="L13">Длина шатуна L <output id="L13o"></output></label><input type="range" id="L13" min="40" max="200" step="5" value="100"></div></div></div>
+      <div class="read" id="s13read"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="sec" id="s14" data-nav="План скоростей">
+  <div class="sec-head"><span class="tag">Тема 14 · графика</span><h2>План скоростей</h2></div>
+  <div class="def"><b>План скоростей</b> — векторный многоугольник, из которого скорости всех точек механизма находятся построением, без формул для производных.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="card"><h3>Как построить</h3>
+        <ol style="margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px">
+          <li>Скорость конца кривошипа: <span class="mi"><i>v</i><sub>A</sub> = ω<i>R</i></span>, направлена перпендикулярно OA.</li>
+          <li>Скорость ползуна <span class="mi"><i>v</i><sub>B</sub></span> направлена вдоль направляющей, то есть горизонтально.</li>
+          <li>Относительная скорость <span class="mi"><i>v</i><sub>BA</sub></span> шатуна направлена перпендикулярно AB.</li>
+          <li>Связь: <span class="mi"><i>v</i><sub>B</sub> = <i>v</i><sub>A</sub> + <i>v</i><sub>BA</sub></span>. Из полюса <i>p</i> откладываем <i>v</i><sub>A</sub>, через его конец проводим перпендикуляр к AB, через <i>p</i> — горизонталь. Они пересекаются в точке <i>b</i>.</li></ol></div>
+      <div class="card"><div class="ctls">
+        <div class="ctl"><label for="phi14">Угол φ <output id="phi14o"></output></label><input type="range" id="phi14" min="0" max="360" step="1" value="50"></div>
+        <div class="ctl"><label for="w14">Угловая скорость ω <output id="w14o"></output></label><input type="range" id="w14" min="1" max="40" step="1" value="10"></div></div>
+        <div class="row" style="margin-top:10px"><button class="btn sm" id="p14">▶ Крутить</button></div></div>
+      <div class="read" id="s14read"></div>
+    </div>
+    <div class="stack">
+      <div class="fig"><svg id="s14svg" viewBox="0 0 520 260" role="img" aria-label="Механизм со скоростями точек A и B"></svg>
+        <div class="figcap"><span><b style="color:var(--blue)">━</b> v<sub>A</sub></span><span><b style="color:var(--warn)">━</b> v<sub>B</sub></span><span>масштаб один для всех стрелок</span></div></div>
+      <div class="fig"><svg id="s14plan" viewBox="0 0 360 300" role="img" aria-label="План скоростей"></svg>
+        <div class="figcap"><span><b style="color:var(--blue)">━</b> pa = v<sub>A</sub></span><span><b style="color:var(--warn)">━</b> pb = v<sub>B</sub></span><span><b style="color:var(--good)">━</b> ab = v<sub>BA</sub></span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="sec" id="s15" data-nav="Степени свободы">
+  <div class="sec-head"><span class="tag">Тема 15</span><h2>Степени свободы механизма</h2></div>
+  <div class="def"><b>Число степеней свободы</b> <i>W</i> — сколько независимых величин нужно задать, чтобы положение всех звеньев механизма стало определённым. Столько же должно быть ведущих звеньев.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="card"><h3>Формула Чебышёва для плоского механизма</h3>
+        <div class="eq c"><i>W</i> = 3<i>n</i> − 2<i>p</i><sub>5</sub> − <i>p</i><sub>4</sub></div>
+        <div class="terms" style="margin-top:12px">
+          <div class="term"><b>n</b>число подвижных звеньев (стойка не считается)</div>
+          <div class="term"><b>p₅</b>пары с одной степенью свободы: шарнир, ползун</div>
+          <div class="term"><b>p₄</b>пары с двумя степенями свободы: кулачок с толкателем, зубья</div></div>
+        <p class="note" style="margin-top:10px">Идея: свободное звено на плоскости имеет 3 степени свободы (два сдвига и поворот). Каждая пара p₅ отнимает 2, каждая p₄ отнимает 1.</p></div>
+      <div class="card"><h3>Посчитайте сами</h3>
+        <div class="seg" id="s15chips"></div>
+        <div class="stack" style="gap:8px;margin-top:12px">
+          <div class="stepper"><span class="l">Подвижные звенья n</span><span class="row" style="gap:8px"><button data-k="n" data-d="-1" aria-label="Уменьшить n">−</button><b id="s15n"></b><button data-k="n" data-d="1" aria-label="Увеличить n">+</button></span></div>
+          <div class="stepper"><span class="l">Пары p₅ (1 степень)</span><span class="row" style="gap:8px"><button data-k="p5" data-d="-1" aria-label="Уменьшить p5">−</button><b id="s15p5"></b><button data-k="p5" data-d="1" aria-label="Увеличить p5">+</button></span></div>
+          <div class="stepper"><span class="l">Пары p₄ (2 степени)</span><span class="row" style="gap:8px"><button data-k="p4" data-d="-1" aria-label="Уменьшить p4">−</button><b id="s15p4"></b><button data-k="p4" data-d="1" aria-label="Увеличить p4">+</button></span></div></div>
+        <div class="eq c" id="s15eq" style="margin-top:12px;white-space:normal"></div>
+        <div class="verdict" id="s15v" style="margin-top:10px"></div>
+        <p class="note" style="margin-top:8px">Формула считает только независимые связи. Если в механизме есть лишние связи (например, параллелограмм с дублирующим звеном), реальная подвижность может отличаться от расчёта.</p></div>
+    </div>
+    <div class="stack">
+      <div class="fig"><svg id="s15svg" viewBox="0 0 360 220" role="img" aria-label="Схема выбранного механизма"></svg>
+        <div class="figcap"><span id="s15name"></span><span id="s15w"></span></div></div>
+      <div class="card soft"><h3>Как читать результат</h3>
+        <ul style="margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px">
+          <li><b>W = 0</b>: жёсткая конструкция, например ферма. Двигаться нечему.</li>
+          <li><b>W = 1</b>: достаточно одного ведущего звена, как у кривошипно-ползунного механизма.</li>
+          <li><b>W ≥ 2</b>: нужно столько ведущих звеньев, сколько степеней свободы. Пример — манипулятор.</li>
+          <li><b>W &lt; 0</b>: лишних связей больше, чем нужно, система статически неопределима.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="sec" id="s16" data-nav="Классы пар">
+  <div class="sec-head"><span class="tag">Тема 16</span><h2>Классификация кинематических пар</h2></div>
+  <div class="def">Твёрдое тело в пространстве имеет <b>6 степеней свободы</b>: три сдвига и три поворота. Пара накладывает <b>условия связи</b> на эти движения, и по их числу её относят к классу.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="card"><div class="eq c" style="margin-bottom:12px">класс <i>k</i> = число условий связи = 6 − <i>W</i></div>
+        <div class="seg" id="s16chips"></div>
+        <h3 id="s16t" style="margin-top:14px"></h3>
+        <p id="s16d"></p>
+        <div class="rowlab">разрешённые движения</div>
+        <div class="dof" id="s16dof"></div>
+        <div class="row" style="margin-top:12px;gap:16px"><span class="note">степеней свободы <b id="s16w" style="color:var(--head)"></b></span><span class="dots" id="s16dots"></span></div>
+        <p class="note" id="s16note" style="margin-top:8px"></p></div>
+    </div>
+    <div class="card"><h3>Сводная таблица</h3>
+      <div class="scroll"><table class="tbl" id="s16tbl"><thead><tr><th>Класс</th><th>Пара</th><th>W</th><th>Контакт</th></tr></thead><tbody></tbody></table></div>
+      <p class="note" style="margin-top:10px"><b>Низшие пары</b> касаются по поверхности (шарнир, ползун, винт), <b>высшие</b> — по линии или в точке (зубья, кулачок, шар на плоскости). В плоских механизмах встречаются в основном пары V класса и высшие пары.</p></div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="sec" id="s17" data-nav="Четырёхзвенник">
+  <div class="sec-head"><span class="tag">Тема 17</span><h2>Шарнирный четырёхзвенник</h2></div>
+  <div class="def"><b>Шарнирный четырёхзвенник</b> — замкнутая цепь из четырёх звеньев и четырёх шарниров. Стойка <i>d</i>, кривошип <i>a</i>, шатун <i>b</i> и коромысло <i>c</i>. Какое звено сможет вращаться целиком, решает условие Грасгофа.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="fig"><svg id="s17svg" viewBox="0 0 520 300" role="img" aria-label="Шарнирный четырёхзвенник"></svg>
+        <div class="figcap"><span><b style="color:var(--r1)">■</b> ведущее a</span><span>пунктир — траектория середины шатуна</span></div></div>
+      <div class="verdict" id="s17v"></div>
+    </div>
+    <div class="stack">
+      <div class="card"><div class="eq c"><i>s</i> + <i>l</i> ≤ <i>p</i> + <i>q</i></div>
+        <p class="note" style="margin-top:8px"><i>s</i> — самое короткое звено, <i>l</i> — самое длинное, <i>p</i> и <i>q</i> — два остальных. Если неравенство выполнено, хотя бы одно звено делает полный оборот.</p></div>
+      <div class="card"><div class="seg" id="s17chips" style="margin-bottom:12px"></div>
+        <div class="ctls">
+          <div class="ctl"><label for="a17">Кривошип a <output id="a17o"></output></label><input type="range" id="a17" min="30" max="120" step="1" value="40"></div>
+          <div class="ctl"><label for="b17">Шатун b <output id="b17o"></output></label><input type="range" id="b17" min="30" max="120" step="1" value="110"></div>
+          <div class="ctl"><label for="c17">Коромысло c <output id="c17o"></output></label><input type="range" id="c17" min="30" max="120" step="1" value="90"></div>
+          <div class="ctl"><label for="d17">Стойка d <output id="d17o"></output></label><input type="range" id="d17" min="30" max="120" step="1" value="100"></div></div></div>
+      <div class="read" id="s17read"></div>
+      <div class="card soft"><h3>Четыре исхода</h3>
+        <ul style="margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px">
+          <li>Короткое звено — кривошип <i>a</i>: <b>кривошипно-коромысловый</b>.</li>
+          <li>Короткое звено — стойка <i>d</i>: <b>двухкривошипный</b>, оба вращаются.</li>
+          <li>Короткое звено — шатун <i>b</i>: <b>двухкоромысловый</b> с вращающимся шатуном.</li>
+          <li>Условие не выполнено: <b>двухкоромысловый</b>, полного оборота нет ни у одного звена.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 -->
+<section class="sec" id="s18" data-nav="Мёртвые точки">
+  <div class="sec-head"><span class="tag">Тема 18</span><h2>Мёртвые точки и угол давления</h2></div>
+  <div class="def"><b>Мёртвая точка</b> — положение, в котором кривошип и шатун лежат на одной прямой. В нём ползун не может провернуть кривошип. <b>Угол давления β</b> — угол между шатуном и направляющей: чем он больше, тем большая часть силы уходит в боковое давление на направляющую.</div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="stack">
+      <div class="fig"><svg id="s18svg" viewBox="0 0 520 250" role="img" aria-label="Угол давления в кривошипно-ползунном механизме"></svg>
+        <div class="figcap"><span id="s18badge">—</span><span>L = 100 мм, R меняется</span></div></div>
+      <div class="card"><div class="row"><button class="btn sm" id="p18">▶ Крутить</button></div>
+        <div class="ctls" style="margin-top:12px">
+          <div class="ctl"><label for="phi18">Угол φ <output id="phi18o"></output></label><input type="range" id="phi18" min="0" max="360" step="1" value="60"></div>
+          <div class="ctl"><label for="lam18">Отношение λ = R / L <output id="lam18o"></output></label><input type="range" id="lam18" min="0.1" max="0.7" step="0.05" value="0.3"></div></div></div>
+    </div>
+    <div class="stack">
+      <div class="read" id="s18read"></div>
+      <div class="fig"><svg id="s18plot" viewBox="0 0 520 190" role="img" aria-label="График угла давления"></svg><div class="figcap"><span>угол давления β от угла кривошипа φ</span></div></div>
+      <div class="card"><div class="eq c" style="white-space:normal">sin β = λ sin φ,&nbsp; β<sub>max</sub> = arcsin λ</div>
+        <p class="note" style="margin-top:8px">Из треугольника OAB по теореме синусов: <i>R</i> sin φ = <i>L</i> sin β. Сила вдоль шатуна <i>F</i> даёт на ползун составляющую <i>F</i> cos β вдоль направляющей и боковую <i>F</i> sin β. Длинный шатун (малое λ) уменьшает боковую силу и износ направляющей.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="sec" id="s19" data-nav="Тест 2">
+  <div class="sec-head"><span class="tag">Тема 19</span><h2>Шпаргалка и углублённый тест</h2></div>
+  <div class="card" style="margin-bottom:16px"><h3>Формулы одним списком</h3>
+    <div class="cheat">
+      <div><small>конец кривошипа</small><div class="eq"><i>x</i> = <i>R</i> cos φ, <i>y</i> = <i>R</i> sin φ</div></div>
+      <div><small>положение ползуна</small><div class="eq"><i>s</i> = <i>R</i> cos φ + √(<i>L</i>² − <i>R</i>² sin² φ)</div></div>
+      <div><small>скорость ползуна</small><div class="eq"><i>v</i> = −ω<i>R</i> sin φ (1 + <i>R</i> cos φ / √(<i>L</i>² − <i>R</i>² sin² φ))</div></div>
+      <div><small>ускорение ползуна (приближённо)</small><div class="eq"><i>a</i> ≈ −ω²<i>R</i> (cos φ + λ cos 2φ)</div></div>
+      <div><small>подвижность плоского механизма</small><div class="eq"><i>W</i> = 3<i>n</i> − 2<i>p</i><sub>5</sub> − <i>p</i><sub>4</sub></div></div>
+      <div><small>класс пары</small><div class="eq"><i>k</i> = 6 − <i>W</i></div></div>
+      <div><small>условие Грасгофа</small><div class="eq"><i>s</i> + <i>l</i> ≤ <i>p</i> + <i>q</i></div></div>
+      <div><small>угол давления</small><div class="eq">sin β = (<i>R</i>/<i>L</i>) sin φ</div></div>
+    </div></div>
+  <div class="card" style="max-width:720px;margin-inline:auto;width:100%"><div class="bar"><i id="q2bar"></i></div><div id="quiz2"></div></div>
 </section>
 
 <footer>Основы кинематики и теории механизмов · интерактивный конспект</footer>
@@ -873,9 +1096,308 @@ draw3();
   $('map').innerHTML=h;
 })();
 
-/* ---------- 12. quiz ---------- */
+/* ================= PART II ================= */
+const pin=(x,y,r)=>`<circle class="fill-s" cx="${x}" cy="${y}" r="${r||6}"/>`;
+const gr=(x,y,w)=>`<line class="ln" x1="${x-w}" y1="${y}" x2="${x+w}" y2="${y}"/>${hatch(x-w+6,x+w,y)}`;
+const polyY=(fn,x0,w,y0,h,lo,hi,n)=>{n=n||120;let p='';for(let i=0;i<=n;i++){const t=i/n;p+=`${(x0+w*t).toFixed(1)},${(y0+h-(fn(t*360)-lo)/(hi-lo)*h).toFixed(1)} `;}return p;};
+
+/* ---------- 13. speed & acceleration ---------- */
 (function(){
-  const Q=[
+  const sv=$('s13svg'),R=30,phiI=$('phi13'),wI=$('w13'),LI=$('L13');
+  let phi=50,play=false;
+  const S=(p,L)=>{const a=p*D2R;return R*Math.cos(a)+Math.sqrt(L*L-(R*Math.sin(a))**2);};
+  const dS=(p,L)=>{const a=p*D2R,q=Math.sqrt(L*L-(R*Math.sin(a))**2);return -R*Math.sin(a)*(1+R*Math.cos(a)/q);};
+  const d2S=(p,L)=>{const h=1e-4,dd=h/D2R;return (dS(p+dd,L)-dS(p-dd,L))/(2*h);};
+  function draw(){
+    const w=+wI.value,L=+LI.value,lam=R/L,x0=58,W=440,H=76,ys=[88,192,296];
+    const sF=p=>S(p,L),vF=p=>w*dS(p,L)/1000,aF=p=>w*w*d2S(p,L)/1000;
+    const rng=(fn)=>{let lo=1e9,hi=-1e9;for(let p=0;p<=360;p+=3){const v=fn(p);lo=Math.min(lo,v);hi=Math.max(hi,v);}const m=(hi-lo)*.08||1;return[lo-m,hi+m];};
+    const rs=rng(sF),rv=rng(vF),ra=rng(aF);
+    let h='<rect class="bg" width="520" height="400"/>';
+    // strip schematic
+    const sx=sv0=>x0+(sv0-(L-R))/(2*R)*W*0.82+W*0.09;
+    const s0=S(phi,L),v0=vF(phi),vmax=Math.max(Math.abs(rv[0]),Math.abs(rv[1]));
+    h+=`<line class="ax" x1="${x0}" y1="46" x2="${x0+W}" y2="46"/>${hatch(x0+6,x0+W,46)}`;
+    h+=`<rect x="${sx(s0)-18}" y="26" width="36" height="20" rx="2" class="blk"/>`;
+    const al=clamp(v0/vmax,-1,1)*70;
+    if(Math.abs(al)>2)h+=`<line x1="${sx(s0)}" y1="14" x2="${sx(s0)+al}" y2="14" style="stroke:var(--warn);stroke-width:3;stroke-linecap:round" marker-end="url(#mk-o)"/>`;
+    h+=`<text class="t s m" x="${x0}" y="12">ползун и его скорость</text>`;
+    const names=['s, мм','v, м/с','a, м/с²'],rr=[rs,rv,ra],fs=[sF,vF,aF],cols=['var(--blue)','var(--warn)','var(--good)'];
+    for(let k=0;k<3;k++){
+      const y0=ys[k],[lo,hi]=rr[k];
+      h+=`<text class="t s m" x="${x0}" y="${y0-8}">${names[k]}</text>`;
+      for(let p=0;p<=360;p+=90)h+=`<line class="thin" style="stroke:var(--grid)" x1="${x0+W*p/360}" y1="${y0}" x2="${x0+W*p/360}" y2="${y0+H}"/>`;
+      h+=`<line class="ax" x1="${x0}" y1="${y0+H}" x2="${x0+W}" y2="${y0+H}" style="opacity:.5"/><line class="ax" x1="${x0}" y1="${y0}" x2="${x0}" y2="${y0+H}"/>`;
+      if(lo<0&&hi>0){const zy=y0+H-(0-lo)/(hi-lo)*H;h+=`<line class="dash" x1="${x0}" y1="${zy}" x2="${x0+W}" y2="${zy}"/>`;}
+      h+=`<text class="t s m" x="${x0-5}" y="${y0+8}" text-anchor="end">${f(hi,k?2:0)}</text><text class="t s m" x="${x0-5}" y="${y0+H}" text-anchor="end">${f(lo,k?2:0)}</text>`;
+      h+=`<polyline points="${polyY(fs[k],x0,W,y0,H,lo,hi)}" fill="none" style="stroke:${cols[k]};stroke-width:2.2"/>`;
+      const cy=y0+H-(fs[k](phi)-lo)/(hi-lo)*H;
+      h+=`<circle cx="${x0+W*phi/360}" cy="${cy}" r="5" style="fill:${cols[k]};stroke:var(--surface);stroke-width:2"/>`;
+    }
+    for(let p=0;p<=360;p+=90)h+=`<text class="t s m" x="${x0+W*p/360}" y="${ys[2]+H+14}" text-anchor="middle">${p}°</text>`;
+    h+=`<line class="accd" x1="${x0+W*phi/360}" y1="${ys[0]}" x2="${x0+W*phi/360}" y2="${ys[2]+H}"/>`;
+    sv.innerHTML=h;
+    const ap=-R*w*w*(Math.cos(phi*D2R)+lam*Math.cos(2*phi*D2R))/1000;
+    $('phi13o').textContent=`${f(phi,0)}°`;$('w13o').textContent=`${w} рад/с`;$('L13o').textContent=`${L} мм`;
+    $('s13read').innerHTML=rd([['Положение s',`${f(sF(phi),1)} мм`],['Скорость v',`${f(vF(phi),3)} м/с`],['Ускорение a',`${f(aF(phi),2)} м/с²`],['a по формуле',`${f(ap,2)} м/с²`],['λ = R/L',f(lam,3)],['Ход ползуна',`${2*R} мм`]]);
+  }
+  phiI.addEventListener('input',()=>{phi=+phiI.value;draw();});wI.addEventListener('input',draw);LI.addEventListener('input',draw);
+  $('p13').addEventListener('click',()=>{play=!play;$('p13').textContent=play?'⏸ Пауза':'▶ Крутить';});
+  ticks.push(dt=>{if(!play)return;phi=(phi+60*dt)%360;phiI.value=Math.round(phi);draw();});
+  draw();
+})();
+
+/* ---------- 14. velocity plan ---------- */
+(function(){
+  const svL=$('s14svg'),svR=$('s14plan'),phiI=$('phi14'),wI=$('w14');
+  let phi=50,play=false;
+  svL.innerHTML='<rect class="bg" width="520" height="260"/><g id="s14g"></g>';
+  svR.innerHTML='<rect class="bg" width="360" height="300"/><g id="s14p"></g>';
+  const arrow=(x1,y1,dx,dy,mk,col,w)=>Math.hypot(dx,dy)<2?'':`<line x1="${x1}" y1="${y1}" x2="${x1+dx}" y2="${y1+dy}" style="stroke:var(${col});stroke-width:${w||3};stroke-linecap:round" marker-end="url(#${mk})"/>`;
+  function draw(){
+    const w=+wI.value,a=phi*D2R,{R,L,Ox,Oy}=M,q=Math.sqrt(L*L-(R*Math.sin(a))**2),p=mpos(phi);
+    const vA={x:-R*Math.sin(a),y:R*Math.cos(a)},vb=-R*Math.sin(a)*(1+R*Math.cos(a)/q);
+    const vBA={x:vb-vA.x,y:-vA.y};
+    // left
+    let h=mech(phi);
+    h+=arrow(p.Ax,p.Ay,vA.x,-vA.y,'mk-b','--blue');
+    h+=arrow(p.Bx,Oy,vb,0,'mk-o','--warn');
+    h+=`<text class="t b" x="${p.Ax+vA.x*0.5-8}" y="${p.Ay-vA.y*0.5-8}" text-anchor="end">v<tspan font-size="9" dy="3">A</tspan></text>`;
+    h+=`<text class="t" style="fill:var(--warn)" x="${p.Bx+vb*0.5}" y="${Oy+44}" text-anchor="middle">v<tspan font-size="9" dy="3">B</tspan></text>`;
+    $('s14g').innerHTML=h;
+    // plan
+    const k=2,P={x:170,y:160},ptA={x:P.x+k*vA.x,y:P.y-k*vA.y},ptB={x:P.x+k*vb,y:P.y};
+    const ux=vBA.x,uy=-vBA.y,ul=Math.hypot(ux,uy)||1;
+    let g=`<line class="dash" x1="20" y1="${P.y}" x2="340" y2="${P.y}"/>`;
+    g+=`<line class="dash" x1="${ptA.x-ux/ul*130}" y1="${ptA.y-uy/ul*130}" x2="${ptA.x+ux/ul*130}" y2="${ptA.y+uy/ul*130}"/>`;
+    g+=arrow(P.x,P.y,ptA.x-P.x,ptA.y-P.y,'mk-b','--blue');
+    g+=arrow(P.x,P.y,ptB.x-P.x,0,'mk-o','--warn',2.2);
+    g+=arrow(ptA.x,ptA.y,ptB.x-ptA.x,ptB.y-ptA.y,'mk-g','--good');
+    g+=`<circle class="fill-s" cx="${P.x}" cy="${P.y}" r="4"/><circle class="pt" cx="${ptA.x}" cy="${ptA.y}" r="4"/><circle class="pt" cx="${ptB.x}" cy="${ptB.y}" r="4"/>`;
+    g+=`<text class="t big" x="${P.x-12}" y="${P.y+20}">p</text><text class="t b big" x="${ptA.x+(ptA.x<P.x?-18:8)}" y="${ptA.y+(ptA.y<P.y?-8:16)}">a</text><text class="t b big" x="${ptB.x+(ptB.x<P.x?-16:8)}" y="${ptB.y+20}">b</text>`;
+    g+=`<text class="t s m" x="20" y="${P.y-6}">линия v_B ∥ направляющей</text><text class="t s m" x="20" y="20">линия v_BA ⟂ AB</text>`;
+    $('s14p').innerHTML=g;
+    const mps=0.0005*w; // px per (rad/s) to m/s
+    const vBAm=Math.hypot(vBA.x,vBA.y);
+    $('phi14o').textContent=`${f(phi,0)}°`;$('w14o').textContent=`${w} рад/с`;
+    $('s14read').innerHTML=rd([['v_A = ωR',`${f(w*R*0.0005,3)} м/с`],['v_B',`${f(vb*mps,3)} м/с`],['v_BA',`${f(vBAm*mps,3)} м/с`],['ω шатуна',`${f(w*vBAm/L,2)} рад/с`]]);
+  }
+  phiI.addEventListener('input',()=>{phi=+phiI.value;draw();});wI.addEventListener('input',draw);
+  $('p14').addEventListener('click',()=>{play=!play;$('p14').textContent=play?'⏸ Пауза':'▶ Крутить';});
+  ticks.push(dt=>{if(!play)return;phi=(phi+50*dt)%360;phiI.value=Math.round(phi);draw();});
+  draw();
+})();
+
+/* ---------- 15. degrees of freedom ---------- */
+(function(){
+  const sv=$('s15svg');
+  const gnd=(x,y,w)=>gr(x,y,w);
+  const P=[
+   {k:'Кривошипно-ползунный',n:3,p5:4,p4:0,d:()=>gnd(70,184,34)+`<path class="blk" d="M58 184L70 154L82 184Z"/><rect x="160" y="156" width="180" height="8" class="blk"/>${hatch(166,340,164)}<rect x="212" y="124" width="48" height="30" rx="2" class="blk" style="--c:var(--r2)"/>`+link(70,154,112,104,8,'var(--r1)')+link(112,104,236,138,8,'var(--r2)')+pin(70,154,7)+pin(112,104)+pin(236,138)},
+   {k:'Шарнирный четырёхзвенник',n:3,p5:4,p4:0,d:()=>gnd(80,184,28)+gnd(260,184,28)+`<line class="dash" x1="80" y1="176" x2="260" y2="176"/>`+link(80,176,110,112,8,'var(--r1)')+link(110,112,232,100,8,'var(--r2)')+link(232,100,260,176,8,'var(--r2)')+pin(80,176,7)+pin(260,176,7)+pin(110,112)+pin(232,100)},
+   {k:'Двухзвенный манипулятор',n:2,p5:2,p4:0,d:()=>gnd(80,190,34)+`<rect x="68" y="168" width="24" height="22" class="blk"/>`+link(80,168,170,100,8,'var(--r2)')+link(170,100,272,140,8,'var(--r2)')+pin(80,168,7)+pin(170,100)+`<circle cx="272" cy="140" r="6" fill="none" style="stroke:var(--blue);stroke-width:1.6;stroke-dasharray:3 3"/>`},
+   {k:'Жёсткий треугольник (ферма)',n:2,p5:3,p4:0,d:()=>gnd(70,184,22)+gnd(250,184,22)+`<line class="dash" x1="70" y1="176" x2="250" y2="176"/>`+link(70,176,160,92,8,'var(--r2)')+link(160,92,250,176,8,'var(--r2)')+pin(70,176,7)+pin(250,176,7)+pin(160,92)},
+   {k:'Пятизвенник',n:4,p5:5,p4:0,d:()=>gnd(90,184,26)+gnd(260,184,26)+`<line class="dash" x1="90" y1="176" x2="260" y2="176"/>`+link(90,176,100,100,8,'var(--r1)')+link(100,100,175,66,8,'var(--r2)')+link(175,66,252,102,8,'var(--r2)')+link(252,102,260,176,8,'var(--r1)')+pin(90,176,7)+pin(260,176,7)+pin(100,100)+pin(175,66)+pin(252,102)},
+   {k:'Кулачок с толкателем',n:2,p5:2,p4:1,d:()=>`<circle cx="150" cy="134" r="46" class="blk" style="--c:var(--r2)"/>`+gnd(140,190,40)+`<path class="blk" d="M128 190L140 142L152 190Z"/>`+pin(140,142,6)+`<line class="bar-out" x1="150" y1="88" x2="150" y2="26" stroke-width="12"/><line class="bar-in" style="--c:var(--r1)" x1="150" y1="88" x2="150" y2="26" stroke-width="8"/><rect x="128" y="40" width="10" height="20" class="blk"/><rect x="162" y="40" width="10" height="20" class="blk"/><circle cx="150" cy="88" r="4" style="fill:var(--warn)"/><text class="t s" x="164" y="92">p₄</text>`}
+  ];
+  let cur=0,st={n:3,p5:4,p4:0};
+  $('s15chips').innerHTML=P.map((p,i)=>`<button class="chip" data-i="${i}">${p.k}</button>`).join('');
+  function upd(){
+    const W=3*st.n-2*st.p5-st.p4;
+    $('s15n').textContent=st.n;$('s15p5').textContent=st.p5;$('s15p4').textContent=st.p4;
+    $('s15eq').innerHTML=`<i>W</i> = 3·${st.n} − 2·${st.p5} − ${st.p4} = <b>${W}</b>`;
+    const v=$('s15v');
+    let cls='verdict',txt;
+    if(W<0){cls+=' warn';txt='W < 0: связей больше, чем нужно. Система статически неопределима, как жёсткая рама с лишними опорами.';}
+    else if(W===0){cls+=' warn';txt='W = 0: звенья не могут двигаться. Это конструкция (ферма), а не механизм.';}
+    else if(W===1){cls+=' ok';txt='W = 1: достаточно одного ведущего звена, и все остальные движутся определённо.';}
+    else{cls+=' ok';txt=`W = ${W}: нужно ${W} ведущих ${W<5?'звена':'звеньев'}, иначе движение остальных звеньев не определено.`;}
+    v.className=cls;v.textContent=txt;
+    document.querySelectorAll('#s15chips .chip').forEach((c,i)=>c.classList.toggle('on',i===cur&&P[i].n===st.n&&P[i].p5===st.p5&&P[i].p4===st.p4));
+    $('s15w').textContent=`W = ${W}`;
+  }
+  function pick(i){cur=i;const p=P[i];st={n:p.n,p5:p.p5,p4:p.p4};sv.innerHTML='<rect class="bg" width="360" height="220"/>'+p.d();$('s15name').textContent=p.k;upd();}
+  $('s15chips').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)pick(+b.dataset.i);});
+  $('s15').addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;const k=b.dataset.k,lim={n:[1,10],p5:[0,14],p4:[0,6]}[k];st[k]=clamp(st[k]+(+b.dataset.d),lim[0],lim[1]);upd();});
+  pick(0);
+})();
+
+/* ---------- 16. classes of pairs ---------- */
+(function(){
+  const AX=['Tx','Ty','Tz','Rx','Ry','Rz'];
+  const D=[
+   {n:'Шар на плоскости',c:'I',w:5,hi:true,ok:[1,1,0,1,1,1],t:'Высшая пара: касание в одной точке. Запрещён только сдвиг вдоль нормали к плоскости, шар не может уйти вглубь.',ex:'шарик в подшипнике качения на плоскости'},
+   {n:'Цилиндр на плоскости',c:'II',w:4,hi:true,ok:[1,1,0,1,0,1],t:'Высшая пара: касание по линии. Цилиндр катится и скользит, но не может ни углубиться, ни наклонить ось.',ex:'каток на столе, ролик по рельсу'},
+   {n:'Плоскость по плоскости',c:'III',w:3,hi:false,ok:[1,1,0,0,0,1],t:'Низшая пара: контакт по поверхности. Можно сдвигать в плоскости и вращать вокруг нормали.',ex:'брусок на столе'},
+   {n:'Шаровая пара',c:'III',w:3,hi:false,ok:[0,0,0,1,1,1],t:'Низшая пара: сдвиги запрещены, повороты вокруг центра шара свободны.',ex:'шаровая опора, тазобедренный сустав'},
+   {n:'Цилиндрическая пара',c:'IV',w:2,hi:false,ok:[1,0,0,1,0,0],t:'Поворот вокруг оси и сдвиг вдоль неё, оба независимы.',ex:'поршень, который может и вращаться в цилиндре'},
+   {n:'Вращательная пара',c:'V',w:1,hi:false,ok:[0,0,0,1,0,0],t:'Только поворот вокруг одной оси: шарнир.',ex:'дверная петля, шарнир кривошипа'},
+   {n:'Поступательная пара',c:'V',w:1,hi:false,ok:[1,0,0,0,0,0],t:'Только сдвиг вдоль направляющей, поворот запрещён.',ex:'ползун, поршень в цилиндре с шпонкой'},
+   {n:'Винтовая пара',c:'V',w:1,hi:false,ok:[2,0,0,2,0,0],t:'Поворот и сдвиг вдоль оси есть, но они связаны шагом резьбы. Независимое движение одно.',ex:'винт и гайка, домкрат'}];
+  const lab={Tx:'сдвиг X',Ty:'сдвиг Y',Tz:'сдвиг Z',Rx:'поворот X',Ry:'поворот Y',Rz:'поворот Z'};
+  $('s16chips').innerHTML=D.map((d,i)=>`<button class="chip" data-i="${i}">${d.n}</button>`).join('');
+  $('s16tbl').querySelector('tbody').innerHTML=D.map((d,i)=>`<tr data-i="${i}"><td>${d.c}</td><td>${d.n}</td><td>${d.w}</td><td>${d.hi?'высшая':'низшая'}</td></tr>`).join('');
+  function pick(i){
+    const d=D[i];
+    document.querySelectorAll('#s16chips .chip').forEach((c,j)=>c.classList.toggle('on',j===i));
+    document.querySelectorAll('#s16tbl tbody tr').forEach((c,j)=>c.classList.toggle('on',j===i));
+    $('s16t').textContent=`${d.n} (${d.c} класс)`;
+    $('s16d').textContent=`${d.t} Пример: ${d.ex}.`;
+    $('s16dof').innerHTML=AX.map((a,k)=>`<div class="${d.ok[k]===1?'ok':d.ok[k]===2?'cp':'no'}">${a}<small>${lab[a]}</small></div>`).join('');
+    $('s16w').textContent=d.w;
+    $('s16dots').innerHTML=Array.from({length:6},(_,k)=>`<i class="${k<d.w?'':'o'}"></i>`).join('');
+    $('s16note').textContent=`Условий связи S = 6 − ${d.w} = ${6-d.w}, поэтому пара относится к ${d.c} классу.`+(d.ok.includes(2)?' Жёлтым отмечены связанные движения: они считаются как одно.':'');
+  }
+  $('s16').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(b)pick(+b.dataset.i);});
+  pick(5);
+})();
+
+/* ---------- 17. four-bar ---------- */
+(function(){
+  const sv=$('s17svg'),I={a:$('a17'),b:$('b17'),c:$('c17'),d:$('d17')};
+  const O2={x:150,y:255};
+  let th=0,dir=1,rng=null,trace='',cls={};
+  sv.innerHTML='<rect class="bg" width="520" height="300"/><g id="s17g"></g>';
+  const pre=[['Кривошип–коромысло',40,110,90,100],['Двухкривошипный',90,100,95,40],['Двухкоромысловый (b короткое)',100,40,95,110],['Условие не выполнено',60,70,80,120]];
+  $('s17chips').innerHTML=pre.map((p,i)=>`<button class="chip" data-i="${i}">${p[0]}</button>`).join('');
+  function geom(t,L){
+    const A={x:O2.x+L.a*Math.cos(t),y:O2.y-L.a*Math.sin(t)},O4={x:O2.x+L.d,y:O2.y};
+    const dx=O4.x-A.x,dy=O4.y-A.y,d=Math.hypot(dx,dy);
+    if(d>L.b+L.c-1e-9||d<Math.abs(L.b-L.c)+1e-9||d<1e-9)return null;
+    const xx=(d*d+L.b*L.b-L.c*L.c)/(2*d),hh=Math.sqrt(Math.max(0,L.b*L.b-xx*xx)),ux=dx/d,uy=dy/d,mx=A.x+xx*ux,my=A.y+xx*uy;
+    const c1={x:mx-hh*uy,y:my+hh*ux},c2={x:mx+hh*uy,y:my-hh*ux};
+    return{A,B:c1.y<c2.y?c1:c2,O4};
+  }
+  function analyse(){
+    const L={a:+I.a.value,b:+I.b.value,c:+I.c.value,d:+I.d.value};
+    $('a17o').textContent=L.a;$('b17o').textContent=L.b;$('c17o').textContent=L.c;$('d17o').textContent=L.d;
+    const arr=[['a',L.a],['b',L.b],['c',L.c],['d',L.d]].sort((x,y)=>x[1]-y[1]);
+    const sum1=arr[0][1]+arr[3][1],sum2=arr[1][1]+arr[2][1],sh=arr[0][0];
+    let kind,full=false;
+    if(sum1>sum2)kind='Условие Грасгофа не выполнено: двухкоромысловый механизм, ни одно звено не делает полного оборота.';
+    else if(sum1===sum2)kind='Равенство в условии Грасгофа: механизм в особом положении, возможен переход звена через «складывание». Меняйте длины.';
+    else if(sh==='a'){kind='Кратчайшее звено — кривошип a: кривошипно-коромысловый механизм. Кривошип вращается, коромысло c качается.';full=true;}
+    else if(sh==='d')kind='Кратчайшее звено — стойка d: двухкривошипный механизм. Оба звена, прилегающие к стойке, вращаются.';
+    else if(sh==='b')kind='Кратчайшее звено — шатун b: двухкоромысловый механизм с вращающимся шатуном. Звенья a и c качаются.';
+    else kind='Кратчайшее звено — коромысло c: при вращающемся c звено a только качается. Ведущим a полный оборот невозможен.';
+    // feasibility scan for driver a
+    const ok=[];for(let i=0;i<720;i++)ok.push(!!geom(i*Math.PI/360,L));
+    const all=ok.every(Boolean),any=ok.some(Boolean);
+    let lo=0,hi=Math.PI*2;
+    if(!all&&any){const s0=ok.indexOf(true);let f=s0,b=s0;while(f<s0+719&&ok[(f+1)%720])f++;while(b>s0-719&&ok[((b-1)%720+720)%720])b--;lo=b*Math.PI/360;hi=f*Math.PI/360;}
+    const full2=all;
+    rng=all?null:(any?[lo,hi]:null);
+    let amin=1e9,amax=-1e9,tr='',prevAng=null;
+    if(any){for(let i=0;i<=240;i++){const t=full2?i/240*Math.PI*2:lo+(hi-lo)*i/240,g=geom(t,L);if(!g)continue;
+      let ang=Math.atan2(g.O4.y-g.B.y,g.B.x-g.O4.x)/D2R;if(prevAng!==null){while(ang-prevAng>180)ang-=360;while(ang-prevAng<-180)ang+=360;}prevAng=ang;amin=Math.min(amin,ang);amax=Math.max(amax,ang);
+      tr+=`${(g.A.x+g.B.x)/2},${(g.A.y+g.B.y)/2} `;}}
+    trace=tr;
+    const cv=$('s17v');cv.className='verdict'+(sum1<=sum2?' ok':' warn');cv.textContent=kind;
+    $('s17read').innerHTML=rd([['s + l',sum1],['p + q',sum2],['Кривошип a',full2?'полный оборот':(any?`качается ${f((hi-lo)/D2R,0)}°`:'сборка невозможна')],['Размах коромысла c',any?`${f(amax-amin,0)}°`:'—']]);
+    cls=L;
+    if(any&&!full2){th=lo;dir=1;}else if(full2){th=th||0;}
+    document.querySelectorAll('#s17chips .chip').forEach((c,i)=>c.classList.toggle('on',pre[i].slice(1).join()===[L.a,L.b,L.c,L.d].join()));
+    draw();
+  }
+  function draw(){
+    const L=cls,g=geom(th,L);let h=`<g transform="translate(${O2.x} ${O2.y}) scale(1.3) translate(${-O2.x} ${-O2.y})">`;
+    if(trace)h+=`<polyline points="${trace}" fill="none" class="dash" style="stroke:var(--blue);opacity:.8"/>`;
+    const O4={x:O2.x+L.d,y:O2.y};
+    h+=`<line class="dash" x1="${O2.x}" y1="${O2.y}" x2="${O4.x}" y2="${O4.y}"/>`+gr(O2.x,O2.y+10,24)+gr(O4.x,O4.y+10,24)+`<path class="blk" d="M${O2.x-14} ${O2.y+10}L${O2.x} ${O2.y}L${O2.x+14} ${O2.y+10}Z"/><path class="blk" d="M${O4.x-14} ${O4.y+10}L${O4.x} ${O4.y}L${O4.x+14} ${O4.y+10}Z"/>`;
+    if(g){
+      h+=link(O2.x,O2.y,g.A.x,g.A.y,9,'var(--r1)')+link(g.A.x,g.A.y,g.B.x,g.B.y,9,'var(--r2)')+link(g.B.x,g.B.y,O4.x,O4.y,9,'var(--r2)');
+      h+=pin(O2.x,O2.y,7)+pin(O4.x,O4.y,7)+pin(g.A.x,g.A.y)+pin(g.B.x,g.B.y);
+      h+=`<text class="t b" x="${(O2.x+g.A.x)/2-12}" y="${(O2.y+g.A.y)/2}" text-anchor="end">a</text><text class="t b" x="${(g.A.x+g.B.x)/2}" y="${(g.A.y+g.B.y)/2-12}" text-anchor="middle">b</text><text class="t b" x="${(g.B.x+O4.x)/2+12}" y="${(g.B.y+O4.y)/2}">c</text>`;
+    }else h+=`<text class="t m" x="${O2.x}" y="120">сборка невозможна</text>`;
+    h+=`<text class="t b" x="${(O2.x+O4.x)/2}" y="${O2.y+36}" text-anchor="middle">d</text>`;
+    $('s17g').innerHTML=h+'</g>';
+  }
+  Object.values(I).forEach(x=>x.addEventListener('input',analyse));
+  $('s17chips').addEventListener('click',e=>{const b=e.target.closest('[data-i]');if(!b)return;const p=pre[+b.dataset.i];I.a.value=p[1];I.b.value=p[2];I.c.value=p[3];I.d.value=p[4];th=0;analyse();});
+  if(!RM)ticks.push(dt=>{
+    if(!cls.a)return;
+    if(!rng){th+=dt*1.3;}
+    else{th+=dir*dt*1.3;if(th>rng[1]){th=rng[1];dir=-1;}if(th<rng[0]){th=rng[0];dir=1;}}
+    draw();});
+  analyse();
+})();
+
+/* ---------- 18. dead points & pressure angle ---------- */
+(function(){
+  const sv=$('s18svg'),pl=$('s18plot'),phiI=$('phi18'),lamI=$('lam18');
+  let phi=60,play=false;
+  sv.innerHTML='<rect class="bg" width="520" height="250"/><g id="s18g"></g>';
+  function draw(){
+    const lam=+lamI.value,L=200,R=L*lam,Ox=80,Oy=120,a=phi*D2R;
+    const Ax=Ox+R*Math.cos(a),Ay=Oy-R*Math.sin(a),Bx=Ax+Math.sqrt(L*L-(R*Math.sin(a))**2),beta=Math.asin(lam*Math.sin(a));
+    let h=`<line class="dash" x1="${Ox-30}" y1="${Oy}" x2="${Ox+L+R+60}" y2="${Oy}"/>`;
+    h+=`<circle class="dash" cx="${Ox}" cy="${Oy}" r="${R}" style="stroke-dasharray:2 4"/>`;
+    h+=`<rect x="${Ox+L-R-30}" y="${Oy+17}" width="${2*R+130}" height="9" class="blk"/>${hatch(Ox+L-R-24,Ox+L+R+100,Oy+26)}`;
+    h+=`<path d="M${Ox-20} ${Oy+44}L${Ox} ${Oy+8}L${Ox+20} ${Oy+44}Z" class="blk"/>${gr(Ox,Oy+44,32)}`;
+    h+=`<line class="dash" x1="${Ox+L+R}" y1="${Oy-30}" x2="${Ox+L+R}" y2="${Oy+60}" style="stroke:var(--bad)"/><line class="dash" x1="${Ox+L-R}" y1="${Oy-30}" x2="${Ox+L-R}" y2="${Oy+60}" style="stroke:var(--bad)"/>`;
+    h+=`<text class="t s" style="fill:var(--bad)" x="${Ox+L}" y="${Oy+92}" text-anchor="middle">пунктир: мёртвые точки</text><text class="t s" style="fill:var(--bad)" x="${Ox+L+R}" y="${Oy+74}" text-anchor="middle">φ = 0°</text><text class="t s" style="fill:var(--bad)" x="${Ox+L-R}" y="${Oy+74}" text-anchor="middle">φ = 180°</text>`;
+    h+=`<rect x="${Bx-26}" y="${Oy-17}" width="52" height="34" rx="2" class="blk"/>`;
+    h+=link(Ax,Ay,Bx,Oy,9,'var(--r2)')+link(Ox,Oy,Ax,Ay,9,'var(--r1)')+pin(Ox,Oy,7)+pin(Ax,Ay)+pin(Bx,Oy);
+    // beta arc at B between guide (toward O, i.e. -x) and rod toward A
+    const ar=46,base=Math.PI,end=Math.PI-beta*Math.sign(Ay<Oy?1:-1)*(-1);
+    const rodAng=Math.atan2(Ay-Oy,Ax-Bx);
+    const sgn=rodAng<0?0:1;
+    const ex=Bx+ar*Math.cos(rodAng),ey=Oy+ar*Math.sin(rodAng);
+    if(Math.abs(beta)>0.01)h+=`<path d="M${Bx-ar} ${Oy} A${ar} ${ar} 0 0 ${rodAng<0?1:0} ${ex} ${ey}" class="acc" style="stroke:var(--warn);stroke-width:2"/><text class="t big" style="fill:var(--warn)" x="${Bx-ar-18}" y="${Oy+(rodAng<0?-14:20)}">β</text>`;
+    h+=`<text class="t big" x="${Ox-14}" y="${Oy+22}" text-anchor="end">O</text><text class="t big" x="${Ax+8}" y="${Ay-10}">A</text>`;
+    const dead=Math.abs(Math.sin(a))<0.02;
+    $('s18g').innerHTML=h;
+    $('s18badge').textContent=dead?'МЁРТВАЯ ТОЧКА: ползун не провернёт кривошип':'рабочее положение';
+    $('s18badge').style.color=dead?'var(--bad)':'';
+    $('phi18o').textContent=`${f(phi,0)}°`;$('lam18o').textContent=f(lam,2);
+    $('s18read').innerHTML=rd([['Угол давления β',`${f(Math.abs(beta)/D2R,1)}°`],['β max',`${f(Math.asin(lam)/D2R,1)}°`],['cos β (вдоль)',f(Math.cos(beta),3)],['|sin β| (боковая)',f(Math.abs(Math.sin(beta)),3)]]);
+    // plot
+    const x0=52,W=448,y0=18,H=132,bm=Math.asin(lam)/D2R*1.15;
+    let g='<rect class="bg" width="520" height="190"/>';
+    for(let p=0;p<=360;p+=90)g+=`<line class="thin" style="stroke:var(--grid)" x1="${x0+W*p/360}" y1="${y0}" x2="${x0+W*p/360}" y2="${y0+H}"/><text class="t m s" x="${x0+W*p/360}" y="${y0+H+16}" text-anchor="middle">${p}°</text>`;
+    const zy=y0+H/2;
+    g+=`<line class="ax" x1="${x0}" y1="${y0}" x2="${x0}" y2="${y0+H}"/><line class="dash" x1="${x0}" y1="${zy}" x2="${x0+W}" y2="${zy}"/>`;
+    g+=`<text class="t m s" x="${x0-6}" y="${y0+8}" text-anchor="end">+${f(bm,0)}°</text><text class="t m s" x="${x0-6}" y="${y0+H}" text-anchor="end">−${f(bm,0)}°</text><text class="t m s" x="${x0-6}" y="${zy+4}" text-anchor="end">0</text>`;
+    const bf=p=>Math.asin(lam*Math.sin(p*D2R))/D2R;
+    g+=`<polyline points="${polyY(bf,x0,W,y0,H,-bm,bm)}" fill="none" style="stroke:var(--warn);stroke-width:2.2"/>`;
+    g+=`<line class="accd" x1="${x0+W*phi/360}" y1="${y0}" x2="${x0+W*phi/360}" y2="${y0+H}"/><circle cx="${x0+W*phi/360}" cy="${y0+H-(bf(phi)+bm)/(2*bm)*H}" r="5" style="fill:var(--warn);stroke:var(--surface);stroke-width:2"/>`;
+    g+=`<text class="t m s" x="${x0+W}" y="${y0+H+32}" text-anchor="end">φ, градусы</text>`;
+    pl.innerHTML=g;
+  }
+  phiI.addEventListener('input',()=>{phi=+phiI.value;draw();});lamI.addEventListener('input',draw);
+  $('p18').addEventListener('click',()=>{play=!play;$('p18').textContent=play?'⏸ Пауза':'▶ Крутить';});
+  ticks.push(dt=>{if(!play)return;phi=(phi+45*dt)%360;phiI.value=Math.round(phi);draw();});
+  draw();
+})();
+
+/* ---------- quizzes ---------- */
+function makeQuiz(root,bar,Q,done){
+  const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+  let i=0,score=0,order=[],tried=false,solved=false;
+  function show(){
+    bar.style.width=(i/Q.length*100)+'%';
+    if(i>=Q.length){
+      const pc=score/Q.length;
+      const msg=pc>=.9?done[0]:pc>=.7?done[1]:pc>=.5?done[2]:done[3];
+      root.innerHTML=`<div class="rowlab" style="margin-top:0">Итоговый результат</div><div class="score">${score} / ${Q.length}</div><p style="margin-top:10px">${msg}</p><p class="note" style="margin-top:6px">В зачёт идут ответы с первой попытки.</p><div class="row" style="margin-top:16px"><button class="btn qre">Пройти заново</button></div>`;
+      root.querySelector('.qre').onclick=()=>{i=0;score=0;show();};return;}
+    tried=false;solved=false;
+    const q=Q[i];order=sh(q[1].map((t,k)=>({t,ok:k===0})));
+    root.innerHTML=`<div class="rowlab" style="margin-top:0">Вопрос ${i+1} из ${Q.length}</div><h3 style="font-size:1.15rem">${q[0]}</h3>`+
+      order.map((o,k)=>`<button class="qopt" data-k="${k}">${o.t}</button>`).join('')+`<div class="fb" aria-live="polite"></div><div class="note qex" style="margin-top:4px"></div><div class="row" style="margin-top:12px"><button class="btn qn" hidden>${i===Q.length-1?'Показать результат':'Дальше →'}</button></div>`;
+    root.querySelectorAll('.qopt').forEach(b=>b.onclick=()=>pick(b));
+    root.querySelector('.qn').onclick=()=>{i++;show();};
+  }
+  function pick(b){
+    if(solved)return;const o=order[+b.dataset.k],fb=root.querySelector('.fb');
+    if(o.ok){solved=true;if(!tried)score++;b.classList.add('ok');fb.className='fb ok';fb.textContent='Верно';root.querySelector('.qex').textContent=Q[i][2];
+      root.querySelectorAll('.qopt').forEach(x=>x.disabled=true);const n=root.querySelector('.qn');n.hidden=false;n.focus({preventScroll:true});}
+    else{tried=true;b.classList.add('no');b.disabled=true;fb.className='fb no';fb.textContent='Попробуйте ещё раз';}
+  }
+  show();
+}
+
+const Q1=[
    ['Что такое звено?',['Тело или группа жёстко соединённых тел, движущихся как единое целое','Любое подвижное соединение двух тел','Неподвижная опора механизма','Точка, в которой сосредоточена вся масса'],'Звено может состоять из нескольких деталей, если они закреплены жёстко и движутся вместе.'],
    ['Что такое кинематическая пара?',['Соединение двух соприкасающихся звеньев, допускающее их относительное движение','Два одинаковых звена в одном механизме','Звено, получающее движение извне','Любые два тела, лежащие рядом'],'Пара ограничивает движение звеньев друг относительно друга: шарнир, ползун с направляющей, винт с гайкой.'],
    ['Чем кинематическая цепь отличается от механизма?',['В механизме одно звено неподвижно (стойка), а при заданном движении ведущих звеньев остальные движутся определённым образом','В механизме всегда больше звеньев','В цепи нет кинематических пар','Никак, это одно и то же'],'Цепь становится механизмом, когда есть стойка и заданы ведущие звенья.'],
@@ -887,32 +1409,24 @@ draw3();
    ['Что означает x = R cos α?',['Координату x точки на окружности радиуса R при угле α','Скорость точки при угле α','Длину шатуна','Номер разряда числа'],'Это координата x точки: основа положения конца кривошипа.'],
    ['Из каких звеньев состоит кривошипно-ползунный механизм?',['Стойка, кривошип, шатун, ползун','Стойка, два кривошипа и ползун','Кривошип, шатун, винт и гайка','Ползун, винт и стойка'],'Нумерация: 0 — стойка, 1 — кривошип, 2 — шатун, 3 — ползун.']
   ];
-  const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
-  let i=0,score=0,order=[],tried=false,solved=false;
-  const root=$('quiz'),bar=$('qbar');
-  function show(){
-    bar.style.width=(i/Q.length*100)+'%';
-    if(i>=Q.length){
-      const msg=score>=9?'Отличный результат: материал освоен.':score>=7?'Хороший результат. Повторите темы, где были ошибки.':score>=5?'Неплохо. Вернитесь к темам 6–10 и попробуйте снова.':'Стоит перечитать разделы и пройти тест ещё раз.';
-      root.innerHTML=`<div class="rowlab" style="margin-top:0">Итоговый результат</div><div class="score">${score} / ${Q.length}</div><p style="margin-top:10px">${msg}</p><p class="note" style="margin-top:6px">В зачёт идут ответы с первой попытки.</p><div class="row" style="margin-top:16px"><button class="btn" id="qre">Пройти заново</button></div>`;
-      $('qre').onclick=()=>{i=0;score=0;show();};return;}
-    tried=false;solved=false;
-    const q=Q[i];order=sh(q[1].map((t,k)=>({t,ok:k===0})));
-    root.innerHTML=`<div class="rowlab" style="margin-top:0">Вопрос ${i+1} из ${Q.length}</div><h3 style="font-size:1.15rem">${q[0]}</h3>`+
-      order.map((o,k)=>`<button class="qopt" data-k="${k}">${o.t}</button>`).join('')+`<div class="fb" id="qfb" aria-live="polite"></div><div class="note" id="qex" style="margin-top:4px"></div><div class="row" style="margin-top:12px"><button class="btn" id="qn" hidden>${i===Q.length-1?'Показать результат':'Дальше →'}</button></div>`;
-    root.querySelectorAll('.qopt').forEach(b=>b.onclick=()=>pick(b));
-    $('qn').onclick=()=>{i++;show();};
-  }
-  function pick(b){
-    if(solved)return;const o=order[+b.dataset.k],fb=$('qfb');
-    if(o.ok){solved=true;if(!tried)score++;b.classList.add('ok');fb.className='fb ok';fb.textContent='Верно';$('qex').textContent=Q[i][2];
-      root.querySelectorAll('.qopt').forEach(x=>x.disabled=true);$('qn').hidden=false;$('qn').focus({preventScroll:true});}
-    else{tried=true;b.classList.add('no');b.disabled=true;fb.className='fb no';fb.textContent='Попробуйте ещё раз';}
-  }
-  show();
-})();
+const Q2=[
+ ['Что вычисляется как ω·ds/dφ для кривошипно-ползунного механизма?',['Скорость ползуна','Ускорение ползуна','Длина шатуна','Угол давления'],'Скорость — производная s по времени, а dφ/dt = ω, поэтому v = ω·ds/dφ.'],
+ ['Чему равна скорость ползуна в мёртвых точках (φ = 0° и 180°)?',['Нулю','Максимальному значению','ωR','ωL'],'В крайних положениях ползун разворачивается, и его скорость проходит через ноль.'],
+ ['Какой формулой даётся подвижность плоского механизма?',['W = 3n − 2p₅ − p₄','W = 6n − 5p₁ − 4p₂','W = n − p₅ − p₄','W = 2n − 3p₅'],'Формула Чебышёва: свободное звено на плоскости имеет 3 степени, пара p₅ отнимает 2, пара p₄ отнимает 1.'],
+ ['Сколько степеней свободы у кривошипно-ползунного механизма (n = 3, p₅ = 4)?',['1','0','2','3'],'W = 3·3 − 2·4 = 1: одного ведущего звена достаточно.'],
+ ['Чем определяется класс кинематической пары?',['Числом условий связи, равным 6 − W','Числом звеньев в механизме','Длиной звеньев','Формой стойки'],'Класс равен числу условий связи, наложенных парой на относительное движение звеньев.'],
+ ['Какие движения допускает цилиндрическая пара?',['Поворот вокруг оси и сдвиг вдоль неё, независимо','Только поворот вокруг оси','Только сдвиг вдоль направляющей','Все три поворота'],'Это пара IV класса с двумя степенями свободы.'],
+ ['Как формулируется условие Грасгофа для четырёхзвенника?',['s + l ≤ p + q','s + l ≥ p + q','s · l = p · q','s = l'],'Сумма самого короткого и самого длинного звеньев не больше суммы двух остальных.'],
+ ['Какой механизм получается при выполненном условии Грасгофа, если кратчайшее звено — кривошип, соединённый со стойкой?',['Кривошипно-коромысловый','Двухкоромысловый без вращающихся звеньев','Двухкривошипный','Кулачковый'],'Кривошип делает полный оборот, а коромысло качается.'],
+ ['Как направлена скорость v_BA шатуна на плане скоростей?',['Перпендикулярно шатуну AB','Вдоль шатуна AB','Вдоль направляющей','Перпендикулярно направляющей'],'Относительное движение точки B вокруг A при жёстком шатуне происходит по окружности, поэтому v_BA ⟂ AB.'],
+ ['Чему равен максимальный угол давления в кривошипно-ползунном механизме?',['arcsin(R/L)','arccos(R/L)','R/L','90°'],'Из sin β = (R/L) sin φ при sin φ = 1.'],
+ ['Что произойдёт с боковой силой на направляющую, если удлинить шатун?',['Уменьшится','Увеличится','Не изменится','Станет равной нулю в любом положении'],'Угол давления β уменьшается вместе с λ = R/L, а боковая сила пропорциональна sin β.'],
+ ['Какое приближённое выражение даёт ускорение ползуна при постоянной ω?',['−ω²R (cos φ + λ cos 2φ)','−ωR sin φ','ω²R sin 2φ','Rω² (1 − λ)'],'Дважды продифференцировав приближённое выражение для s, получаем вторую гармонику λ cos 2φ.']
+];
+
+makeQuiz($('quiz'),$('qbar'),Q1,['Отличный результат: основы освоены.','Хороший результат. Повторите темы, где были ошибки.','Неплохо. Вернитесь к темам 6–10 и попробуйте снова.','Стоит перечитать разделы и пройти тест ещё раз.']);
+makeQuiz($('quiz2'),$('q2bar'),Q2,['Отличный результат: углублённый курс освоен.','Хороший результат. Перечитайте темы с ошибками.','Неплохо. Вернитесь к темам 13–18 и попробуйте снова.','Стоит пройти углублённые темы ещё раз.']);
 })();
 </script>
-
 </body>
 </html>
